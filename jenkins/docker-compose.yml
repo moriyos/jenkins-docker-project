@@ -1,6 +1,6 @@
 services:
   jenkins:
-    build:
+    build: .
     container_name: jenkins
     user: root
     ports:
