@@ -28,7 +28,7 @@ pipeline {
     stage('Build image') {
       steps {
         echo "build docker image"
-        sh 'Docker build -t jenkins:${BUILD_NUMBER} -t jenkins:latest .' // name of project
+        sh 'docker build -t jenkins:${BUILD_NUMBER} -t jenkins:latest .' // name of project
       }
     }  
 
