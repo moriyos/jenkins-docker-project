@@ -34,10 +34,13 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        echo "run new version on port 8001"
-        sh 'docker run -d --name greets-live -p 8001:8000 jenkins:latest'
+          echo 'run new version on port 8001'
+          sh '''
+              docker rm -f greets-live || true
+              docker run -d --name greets-live -p 8001:8000 jenkins:latest
+          '''
       }
-    }  
+    }
   }
 
   post {
